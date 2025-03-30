@@ -190,15 +190,48 @@ function App() {
     };
   }, [open, activeIndex]);
 
+  const sectionRefs = useRef<(HTMLDivElement | null)[]>([]); // Array of section refs
+  const sections = ["landing", "proposito", "viajes"];
+
+  const handleNavbarClick = (section: string) => {
+    const index = sections.indexOf(section);
+    const targetSection = sectionRefs.current[index];
+    if (targetSection) {
+      targetSection.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
   return (
     <>
-      <div className="landing">
+      <div
+        className="landing"
+        ref={(el) => {
+          sectionRefs.current[0] = el;
+        }}
+      >
         <div className="navbar">
-          <div className="navbarTitle">TravelCoin</div>
+          <div
+            className="navbarTitle"
+            onClick={() => handleNavbarClick("landing")}
+          >
+            TravelCoin
+          </div>
           <div className="navbarMenu">
-            <div className="navbarItem">Proposito</div>
-            <div className="navbarItem">Viajes</div>
-            <div className="navbarItem">Conectar</div>
+            <div
+              className="navbarItem"
+              onClick={() => handleNavbarClick("proposito")}
+            >
+              Proposito
+            </div>
+            <div
+              className="navbarItem"
+              onClick={() => handleNavbarClick("viajes")}
+            >
+              Viajes
+            </div>
+            <div className="navbarItem">
+              Conectar <img className="navbarImg" src="icons/MetaMask.png" />
+            </div>
           </div>
         </div>
 
@@ -221,11 +254,21 @@ function App() {
             tecnología blockchain. Únete a la nueva era del turismo digital y
             viaja más, gastando menos 🚀🌍
           </div>
-          <div className="landingBtn">Conoce Más</div>
+          <div
+            onClick={() => handleNavbarClick("proposito")}
+            className="landingBtn"
+          >
+            Conoce Más
+          </div>
         </div>
       </div>
 
-      <div className="aboutUsSection">
+      <div
+        className="aboutUsSection"
+        ref={(el) => {
+          sectionRefs.current[1] = el;
+        }}
+      >
         <div className="quienesSomos">¿Quienes somos?</div>
         <div className="quienesSomosDesc">
           Somos un equipo apasionado por la innovación y la tecnología,
@@ -251,6 +294,9 @@ function App() {
       </div>
 
       <div
+        ref={(el) => {
+          sectionRefs.current[2] = el;
+        }}
         className="section"
         style={{
           marginBottom: `${itineraryHeight}px`,
