@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "./App.css";
 import "swiper/css";
@@ -119,16 +119,65 @@ const cardsData = [
 
 function App() {
   const [open, setOpen] = useState(false);
-  const [activeIndex, setActiveIndex] = useState(2); // Set initial slide to be active
+  const [activeIndex, setActiveIndex] = useState(2);
+  const [itineraryHeight, setItineraryHeight] = useState(0);
+  const itineraryRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const sectionRef = useRef<(HTMLDivElement | null)[]>([]);
+
+  const swiperRef = useRef<(HTMLDivElement | null)[]>([]);
+
+  const animationRef = useRef<number | null>(null); // Properly typed
+  const animationStartTime = useRef<number>(0);
 
   const handleSlideChange = (swiper) => {
     setActiveIndex(swiper.realIndex);
   };
 
+  useEffect(() => {
+    if (open) {
+      // Start animation
+      animationStartTime.current = performance.now();
+      const animate = (time: number) => {
+        const elapsed = time - animationStartTime.current;
+        const progress = Math.min(elapsed / 100, 1); // 500ms matches your CSS animation
+
+        const currentRef = itineraryRefs.current[activeIndex];
+        if (currentRef) {
+          // Get the full height (this might need adjustment based on your actual layout)
+          const fullHeight = currentRef.scrollHeight;
+          const adjustedHeight = fullHeight * progress;
+          // Apply the current height based on animation progress
+          setItineraryHeight(adjustedHeight - 300);
+        }
+
+        if (progress < 1) {
+          animationRef.current = requestAnimationFrame(animate);
+        }
+      };
+      animationRef.current = requestAnimationFrame(animate);
+    } else {
+      // Close animation
+      setItineraryHeight(0);
+    }
+
+    return () => {
+      if (animationRef.current) {
+        cancelAnimationFrame(animationRef.current);
+      }
+    };
+  }, [open, activeIndex]);
+
   return (
     <>
-      <div className="section">
+      <div
+        className="section"
+        style={{
+          background: "orange",
+          marginBottom: `${itineraryHeight}px`,
+        }}
+      >
         <Swiper
+          ref={swiperRef}
           className="swiper"
           slidesPerView={"auto"}
           centeredSlides
@@ -137,7 +186,6 @@ function App() {
           onSlideChange={handleSlideChange}
         >
           {cardsData.map((card, index) => {
-            // Calculate scale based on the distance from the active slide
             const distance = Math.abs(activeIndex - index);
             const scale = 1 - distance * 0.1;
 
@@ -147,7 +195,7 @@ function App() {
                   className="card"
                   style={{
                     background: card.backgroundColor,
-                    transform: `scale(${scale})`, // Apply scale based on distance
+                    transform: `scale(${scale})`,
                   }}
                 >
                   <div>
@@ -163,6 +211,7 @@ function App() {
                       Ver más
                     </div>
                     <div
+                      ref={(el) => (itineraryRefs.current[index] = el)}
                       className={
                         activeIndex === index && open
                           ? "itinerario"
@@ -183,7 +232,6 @@ function App() {
                           <div>{activity.desc}</div>
                         </div>
                       ))}
-
                       <div className="cardBtn" onClick={() => setOpen(!open)}>
                         Cerrar
                       </div>
@@ -196,16 +244,10 @@ function App() {
         </Swiper>
       </div>
 
-      <div
-        className="section"
-        style={{
-          background: "pink",
-        }}
-      >
+      <div className="section" style={{ background: "pink" }}>
         uwu
       </div>
     </>
   );
 }
-
 export default App;
