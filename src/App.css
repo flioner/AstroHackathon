@@ -4,8 +4,37 @@
   width: 100vw;
   background-color: white;
   overflow-x: hidden;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+
   .swiper-slide {
     height: auto;
+  }
+
+  body {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+  body::-webkit-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+    display: none;
+  }
+
+  div::-webkit-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+    display: none;
+  }
+
+  .div {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+
+  ::-webkit-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    display: none;
   }
 }
 
@@ -413,7 +442,7 @@
   gap: 20px;
   align-items: stretch !important;
   padding: 200px 20px;
-  @media (max-width: 600px) {
+  @media (max-width: 1000px) {
     flex-direction: column;
   }
 }
@@ -438,8 +467,9 @@
 
   box-shadow: 0 0 5px 3px rgba(0, 0, 0, 0.1);
 
-  @media (max-width: 600px) {
+  @media (max-width: 1000px) {
     width: 100%;
+    max-width: 1000px;
     height: 30vh;
   }
 }

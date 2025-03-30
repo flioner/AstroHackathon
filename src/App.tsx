@@ -303,6 +303,7 @@ function App() {
           centeredSlides
           initialSlide={initialSlide}
           spaceBetween={10}
+          slideToClickedSlide={true}
         >
           {teamMembers.map((member, index) => (
             <SwiperSlide key={index} className="teamSlide">
@@ -363,6 +364,7 @@ function App() {
           initialSlide={initialSlide}
           spaceBetween={0}
           onSlideChange={handleSlideChange}
+          slideToClickedSlide={true}
         >
           {cardsData.map((card, index) => {
             const distance = Math.abs(activeIndex - index);
