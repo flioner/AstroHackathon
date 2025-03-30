@@ -102,6 +102,45 @@ const cardsData = [
   },
 ];
 
+const teamMembers = [
+  {
+    name: "Tania Topete",
+    pfp: "tania",
+    career: "Desconocida",
+    contact: "tania.topete4973@alumnos.udg.mx | 3322303479",
+  },
+  {
+    name: "Omar López",
+    pfp: "omar",
+    career: "Desconocida",
+    contact: "jesus.lopez8692@alumnos.udg.mx | 3313103959",
+  },
+  {
+    name: "Fabián Lioner",
+    pfp: "fabian",
+    career: "Desconocida",
+    contact: "lionerrochae@gmail.com | 3315996062",
+  },
+  {
+    name: "Kevin Ramírez",
+    pfp: "kevin",
+    career: "Desconocida",
+    contact: "kevin.ramirez6122@alumnos.udg.mx | 3320114843",
+  },
+  {
+    name: "Nayeli Hernández",
+    pfp: "nayeli",
+    career: "Desconocida",
+    contact: "nayeli.hhernandez@alumnos.udg.mx | 3318543924",
+  },
+  {
+    name: "María Rubio",
+    pfp: "marilu",
+    career: "Desconocida",
+    contact: "a01568749@tec.mx | 6141408779",
+  },
+];
+
 function App() {
   const [open, setOpen] = useState(false);
   const initialSlide = 1;
@@ -169,7 +208,7 @@ function App() {
           muted
           autoPlay
           controls={false}
-          src="agave1.mp4"
+          src="agave1.webm"
         />
 
         <div className="landingCont">
@@ -186,7 +225,30 @@ function App() {
         </div>
       </div>
 
-      <div className="section">uwu</div>
+      <div className="aboutUsSection">
+        <div className="quienesSomos">¿Quienes somos?</div>
+        <div className="quienesSomosDesc">
+          Somos un equipo apasionado por la innovación y la tecnología,
+          comprometidos con transformar la industria del turismo a través de
+          soluciones basadas en blockchain. Con Travelcoin, buscamos crear
+          experiencias de viaje más accesibles, seguras y gratificantes para
+          todos.
+        </div>
+        <div className="teamMembers">
+          {teamMembers.map((member, index) => (
+            <div key={index} className="teamMember">
+              <img
+                className="teamImg"
+                src={`/pfps/${member.pfp}.webp`}
+                alt={member.name}
+              />
+              <div className="teamText">
+                <h3>{member.name}</h3>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
 
       <div
         className="section"
