@@ -1,6 +1,7 @@
 @import "./base.css";
 
 #root {
+  background-color: white;
   .swiper-slide {
     height: auto;
   }
@@ -16,6 +17,79 @@
   margin-bottom: 0px;
   transition: margin-bottom 0.5s;
 }
+
+.landing {
+  height: 100vh;
+  width: 100vw;
+  color: white;
+}
+
+.landingVideo {
+  height: 100vh;
+  width: 100vw;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.landingCont {
+  height: 100vh;
+  width: calc(100% - 120px);
+  max-width: 2000px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: auto;
+}
+
+.landingTitle {
+  font-size: max(min(5vw, 6rem), 2.5rem);
+  font-weight: bold;
+}
+.landingText {
+  font-size: var(--M);
+}
+/* Navbar */
+
+.navbar {
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+  padding: 15px;
+  width: calc(100% - 70px);
+  backdrop-filter: blur(10px) brightness(90%) !important;
+  border-radius: 10px;
+  color: white;
+  align-items: center;
+  z-index: 99;
+}
+
+.navbarMenu {
+  display: flex;
+  gap: 10px;
+  font-size: var(--S);
+}
+
+.navbarItem {
+  background-color: rgba(0, 0, 0, 0.315);
+  padding: 10px 20px;
+  border-radius: 7px;
+}
+
+.navbarItem:hover {
+  background-color: rgba(0, 0, 0, 0.515);
+  cursor: pointer;
+}
+
+.navbarTitle {
+  font-weight: bold;
+  font-size: var(--M);
+}
+/* Sección de Viajes*/
+
 /* Swiper */
 
 .swiper {

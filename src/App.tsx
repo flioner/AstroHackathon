@@ -153,8 +153,36 @@ function App() {
 
   return (
     <>
-      <div className="section" style={{ background: "white" }}>
-        Landing
+      <div className="landing">
+        <div className="navbar">
+          <div className="navbarTitle">TravelCoin</div>
+          <div className="navbarMenu">
+            <div className="navbarItem">Proposito</div>
+            <div className="navbarItem">Viajes</div>
+            <div className="navbarItem">Conectar</div>
+          </div>
+        </div>
+
+        <video
+          className="landingVideo"
+          loop
+          muted
+          autoPlay
+          controls={false}
+          src="agave1.mp4"
+        />
+
+        <div className="landingCont">
+          <div className="landingTitle">TravelCoin</div>
+          <div className="landingText">
+            Descubre Travelcoin, la plataforma que revoluciona el turismo al
+            recompensarte con tokens por cada aventura. Canjea tus Travelcoins
+            por descuentos en viajes, experiencias únicas o conviértelos en
+            criptomonedas, todo con la seguridad y transparencia de la
+            tecnología blockchain. Únete a la nueva era del turismo digital y
+            viaja más, gastando menos 🚀🌍
+          </div>
+        </div>
       </div>
 
       <div
