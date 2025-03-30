@@ -50,6 +50,16 @@
 }
 .landingText {
   font-size: var(--M);
+  filter: drop-shadow(0 0 5px rgb(0, 0, 0));
+}
+
+.landingBtn {
+  margin-top: 20px;
+  padding: 15px 30px;
+  width: fit-content;
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 7px !important;
+  font-size: var(--S);
 }
 /* Navbar */
 

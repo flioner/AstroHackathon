@@ -182,7 +182,12 @@ function App() {
             tecnología blockchain. Únete a la nueva era del turismo digital y
             viaja más, gastando menos 🚀🌍
           </div>
+          <div className="landingBtn">Conoce Más</div>
         </div>
+      </div>
+
+      <div className="section" style={{ background: "pink" }}>
+        uwu
       </div>
 
       <div
@@ -256,10 +261,6 @@ function App() {
             );
           })}
         </Swiper>
-      </div>
-
-      <div className="section" style={{ background: "pink" }}>
-        uwu
       </div>
     </>
   );
