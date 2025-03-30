@@ -167,7 +167,7 @@ function App() {
           slidesPerView={"auto"}
           centeredSlides
           initialSlide={2}
-          spaceBetween={50}
+          spaceBetween={0}
           onSlideChange={handleSlideChange}
         >
           {cardsData.map((card, index) => {
