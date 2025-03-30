@@ -296,6 +296,33 @@ function App() {
             </div>
           ))}
         </div>
+
+        <Swiper
+          className="teamSlider"
+          slidesPerView={"auto"}
+          centeredSlides
+          initialSlide={initialSlide}
+          spaceBetween={10}
+        >
+          {teamMembers.map((member, index) => (
+            <SwiperSlide key={index} className="teamSlide">
+              <img
+                className="teamImg"
+                src={`/pfps/${member.pfp}.webp`}
+                alt={member.name}
+              />
+              <div className="teamSliderText">
+                <h3>{member.name}</h3>
+                <h3>
+                  <a className="teamContacto" href={`mailto:${member.contact}`}>
+                    <img className="teamIcon" src="/icons/mail.webp" />
+                  </a>
+                </h3>
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+
         <div className="problematicaCont">
           <div className="problematica">
             <img className="problematicaImg" src="mexico.webp" />
