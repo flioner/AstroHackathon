@@ -26,6 +26,21 @@ const cardsData = [
         status: "Faltante",
         desc: "Participa en una cata de tequilas premium...",
       },
+      {
+        title: "Tour de Fábricas",
+        status: "Faltante",
+        desc: "Visita destilerías artesanales...",
+      },
+      {
+        title: "Recorrido por el Pueblo Mágico",
+        status: "Faltante",
+        desc: "Descubre las encantadoras calles...",
+      },
+      {
+        title: "Degustación de Tequila",
+        status: "Faltante",
+        desc: "Participa en una cata de tequilas premium...",
+      },
     ],
   },
   {
@@ -111,46 +126,49 @@ function App() {
   };
 
   return (
-    <div className="section">
-      <Swiper
-        className="swiper"
-        slidesPerView={"auto"}
-        centeredSlides
-        initialSlide={2}
-        spaceBetween={50}
-        onSlideChange={handleSlideChange}
-      >
-        {cardsData.map((card, index) => {
-          // Calculate scale based on the distance from the active slide
-          const distance = Math.abs(activeIndex - index);
-          const scale = 1 - distance * 0.1;
+    <>
+      <div className="section">
+        <Swiper
+          className="swiper"
+          slidesPerView={"auto"}
+          centeredSlides
+          initialSlide={2}
+          spaceBetween={50}
+          onSlideChange={handleSlideChange}
+        >
+          {cardsData.map((card, index) => {
+            // Calculate scale based on the distance from the active slide
+            const distance = Math.abs(activeIndex - index);
+            const scale = 1 - distance * 0.1;
 
-          return (
-            <SwiperSlide className="slide" key={index}>
-              <div
-                className="card"
-                style={{
-                  background: card.backgroundColor,
-                  transform: `scale(${scale})`, // Apply scale based on distance
-                }}
-              >
-                <div>
-                  <img className="cardImg" src={card.img} alt={card.title} />
-                  <div className="cardContent">
-                    <div className="cardTitle">{card.title}</div>
-                    <div className="cardDesc">{card.desc}</div>
+            return (
+              <SwiperSlide className="slide" key={index}>
+                <div
+                  className="card"
+                  style={{
+                    background: card.backgroundColor,
+                    transform: `scale(${scale})`, // Apply scale based on distance
+                  }}
+                >
+                  <div>
+                    <img className="cardImg" src={card.img} alt={card.title} />
+                    <div className="cardContent">
+                      <div className="cardTitle">{card.title}</div>
+                      <div className="cardDesc">{card.desc}</div>
+                    </div>
                   </div>
-                </div>
 
-                <div className="cardBottom">
-                  <div
-                    className={!open ? "cardBtn" : "cardBtnColapsado"}
-                    onClick={() => setOpen(!open)}
-                  >
-                    Ver más
-                  </div>
-                  {open && activeIndex === index && (
-                    <div className="itinerario">
+                  <div className="cardBottom">
+                    <div className="cardBtn" onClick={() => setOpen(!open)}>
+                      Ver más
+                    </div>
+                    <div
+                      className={
+                        activeIndex === index && open
+                          ? "itinerario"
+                          : "itinerarioColapsado"
+                      }
+                    >
                       <div className="itinerarioTitulo">Itinerario</div>
                       {card.itinerary.map((activity, activityIndex) => (
                         <div className="actividad" key={activityIndex}>
@@ -165,21 +183,28 @@ function App() {
                           <div>{activity.desc}</div>
                         </div>
                       ))}
+
+                      <div className="cardBtn" onClick={() => setOpen(!open)}>
+                        Cerrar
+                      </div>
                     </div>
-                  )}
-                  <div
-                    className={open ? "cardBtn" : "cardBtnColapsado"}
-                    onClick={() => setOpen(!open)}
-                  >
-                    Cerrar
                   </div>
                 </div>
-              </div>
-            </SwiperSlide>
-          );
-        })}
-      </Swiper>
-    </div>
+              </SwiperSlide>
+            );
+          })}
+        </Swiper>
+      </div>
+
+      <div
+        className="section"
+        style={{
+          background: "pink",
+        }}
+      >
+        uwu
+      </div>
+    </>
   );
 }
 
