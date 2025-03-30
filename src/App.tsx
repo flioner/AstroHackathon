@@ -107,37 +107,37 @@ const teamMembers = [
     name: "Tania Topete",
     pfp: "tania",
     career: "Desconocida",
-    contact: "tania.topete4973@alumnos.udg.mx | 3322303479",
+    contact: "tania.topete4973@alumnos.udg.mx",
   },
   {
     name: "Omar López",
     pfp: "omar",
     career: "Desconocida",
-    contact: "jesus.lopez8692@alumnos.udg.mx | 3313103959",
+    contact: "jesus.lopez8692@alumnos.udg.mx",
   },
   {
     name: "Fabián Lioner",
     pfp: "fabian",
     career: "Desconocida",
-    contact: "lionerrochae@gmail.com | 3315996062",
+    contact: "lionerrochae@gmail.com",
   },
   {
     name: "Kevin Ramírez",
     pfp: "kevin",
     career: "Desconocida",
-    contact: "kevin.ramirez6122@alumnos.udg.mx | 3320114843",
+    contact: "kevin.ramirez6122@alumnos.udg.mx",
   },
   {
     name: "Nayeli Hernández",
     pfp: "nayeli",
     career: "Desconocida",
-    contact: "nayeli.hhernandez@alumnos.udg.mx | 3318543924",
+    contact: "nayeli.hhernandez@alumnos.udg.mx",
   },
   {
     name: "María Rubio",
     pfp: "marilu",
     career: "Desconocida",
-    contact: "a01568749@tec.mx | 6141408779",
+    contact: "a01568749@tec.mx",
   },
 ];
 
@@ -203,7 +203,7 @@ function App() {
 
   return (
     <>
-      <div
+      <div /* Landing */
         className="landing"
         ref={(el) => {
           sectionRefs.current[0] = el;
@@ -263,7 +263,7 @@ function App() {
         </div>
       </div>
 
-      <div
+      <div /* Proposito, AboutUS & Problematica */
         className="aboutUsSection"
         ref={(el) => {
           sectionRefs.current[1] = el;
@@ -287,13 +287,22 @@ function App() {
               />
               <div className="teamText">
                 <h3>{member.name}</h3>
+                <h3>
+                  <a className="teamContacto" href={`mailto:${member.contact}`}>
+                    Contacto
+                  </a>
+                </h3>
               </div>
             </div>
           ))}
         </div>
+
+        <div className="problematica">
+          <img className="problematicaBg" src="bg.jpg" />
+        </div>
       </div>
 
-      <div
+      <div /* Experiancias, Viajes e Itinerarios */
         ref={(el) => {
           sectionRefs.current[2] = el;
         }}

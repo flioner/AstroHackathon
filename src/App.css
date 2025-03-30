@@ -58,16 +58,16 @@
   margin-top: 20px;
   padding: 15px 30px;
   width: fit-content;
-  background: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.8);
   border-radius: 7px !important;
   font-size: var(--S);
-  transition: all 0.3s;
+  transition: all 0.5s;
 }
 
 .landingBtn:hover {
-  background: rgba(0, 0, 0, 1);
+  background-color: rgba(0, 0, 0, 1);
   cursor: pointer;
-  transition: all 0.3s;
+  transition: all 0.5s;
 }
 /* Navbar */
 
@@ -97,17 +97,20 @@
   border-radius: 7px;
   display: flex;
   align-items: center;
+  transition: all 0.3s;
 }
 
 .navbarItem:hover {
   background-color: rgba(0, 0, 0, 0.515);
   cursor: pointer;
+  transition: all 0.3s;
 }
 
 .navbarTitle {
   font-weight: bold;
   font-size: var(--M);
   filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.493));
+  cursor: pointer;
 }
 
 .navbarImg {
@@ -274,12 +277,12 @@
   font-weight: bold;
 }
 
-/*  Team Members */
+/*  About Us */
 
 .aboutUsSection {
   min-width: 100vw;
-  min-height: 100vh;
-  height: fit-content !important;
+  height: 100vh;
+  min-height: fit-content !important;
 }
 
 .quienesSomos {
@@ -334,4 +337,27 @@
   width: calc(100% - 40px);
   padding: 0px 10px;
   backdrop-filter: blur(20px) brightness(1.25) saturate(1) contrast(0.6) !important;
+  display: flex;
+  justify-content: space-between;
+  color: white !important;
+}
+
+.teamContacto {
+  color: rgb(0, 0, 0) !important;
+}
+/* Problematica */
+
+.problematica {
+  width: 100vw;
+  padding-top: 100px;
+  height: 800px !important;
+  object-fit: cover;
+}
+
+.problematicaBg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0);
+  opacity: 0.5;
 }
