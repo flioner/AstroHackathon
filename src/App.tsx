@@ -186,14 +186,11 @@ function App() {
         </div>
       </div>
 
-      <div className="section" style={{ background: "pink" }}>
-        uwu
-      </div>
+      <div className="section">uwu</div>
 
       <div
         className="section"
         style={{
-          background: "orange",
           marginBottom: `${itineraryHeight}px`,
         }}
       >

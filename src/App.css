@@ -13,7 +13,6 @@
   min-height: fit-content !important  ;
   display: flex;
   align-items: center;
-  background-color: yellow;
   margin-bottom: 0px;
   transition: margin-bottom 0.5s;
 }
@@ -103,7 +102,6 @@
 /* Swiper */
 
 .swiper {
-  background-color: red;
   display: flex !important;
   align-items: stretch !important;
   width: 100vw !important;
@@ -115,7 +113,6 @@
 .slide {
   position: relative;
   width: fit-content !important;
-  background-color: blue;
   min-height: 100% !important;
   overflow: visible !important;
 }
@@ -126,12 +123,6 @@
   max-width: 500px;
   width: 75vw;
   min-height: 100% !important;
-
-  background: linear-gradient(
-    -30deg,
-    rgb(159, 182, 255) 0%,
-    rgb(105, 73, 126) 100%
-  );
 
   padding: 20px 20px 0px 20px;
   border-radius: 10px !important;
