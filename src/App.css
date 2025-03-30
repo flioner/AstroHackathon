@@ -324,6 +324,7 @@
 }
 
 .teamImg {
+  position: relative;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -335,18 +336,22 @@
   position: absolute;
   bottom: 10px;
   left: 10px;
-  z-index: 99;
   border-radius: 5px;
   width: calc(100% - 40px);
+  height: fit-content;
   padding: 0px 10px;
   backdrop-filter: blur(20px) brightness(1.25) saturate(1) contrast(0.6) !important;
   display: flex;
   justify-content: space-between;
-  color: white !important;
+  align-items: center;
+  z-index: 99 !important;
 }
 
 .teamContacto {
   color: rgb(0, 0, 0) !important;
+}
+.teamIcon {
+  height: 30px;
 }
 /* Problematica */
 .problematicaCont {

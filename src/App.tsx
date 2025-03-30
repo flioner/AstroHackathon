@@ -289,7 +289,7 @@ function App() {
                 <h3>{member.name}</h3>
                 <h3>
                   <a className="teamContacto" href={`mailto:${member.contact}`}>
-                    Contacto
+                    <img className="teamIcon" src="/icons/mail.webp" />
                   </a>
                 </h3>
               </div>
