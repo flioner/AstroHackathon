@@ -1,0 +1,160 @@
+@import "./base.css";
+
+#root {
+  .swiper-slide {
+    height: auto;
+  }
+}
+
+.section {
+  height: 100vh;
+  width: 100vw;
+}
+/* Swiper */
+
+.swiper {
+  background-color: red;
+  display: flex !important;
+  align-items: stretch !important;
+  width: 100vw !important;
+  padding-bottom: 50px !important;
+}
+
+.slide {
+  position: relative;
+  width: fit-content !important;
+  background-color: blue;
+  min-height: 100% !important;
+}
+/* Card */
+
+.card {
+  min-width: 300px;
+  max-width: 800px;
+  width: 60vw;
+  min-height: 100% !important;
+
+  flex-shrink: 0;
+  background: linear-gradient(
+    -30deg,
+    rgb(159, 182, 255) 0%,
+    rgb(105, 73, 126) 100%
+  );
+
+  padding: 20px 20px 0px 20px;
+  border-radius: 10px !important;
+
+  border: solid 3px rgb(227, 167, 255);
+  box-shadow: 0 0 4px 2px rgba(5, 0, 0, 0.3);
+
+  z-index: 99 !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.cardImg {
+  width: 100%;
+  border-radius: 7px;
+  box-shadow: 0 0 4px 2px rgba(5, 0, 0, 0.3);
+}
+
+.cardContent {
+  color: white;
+}
+
+.cardTitle {
+  margin-top: 20px;
+  font-weight: bold;
+  font-size: var(--XL);
+}
+
+.cardDesc {
+  margin-top: 10px;
+  font-size: var(--S);
+  text-align: justify;
+}
+
+/* Card Bottom*/
+.cardBottom {
+  width: 100%;
+  margin-top: 20px;
+  color: rgb(25, 0, 58);
+  background-color: white;
+  border-radius: 7px;
+  font-size: var(--S);
+  margin-bottom: 20px;
+}
+
+.cardBtn {
+  width: 100%;
+  color: rgb(25, 0, 58);
+  background-color: white;
+  max-height: 500px;
+  transition: all 0.5s;
+  text-align: center;
+  border-radius: 7px;
+  font-weight: bold;
+  padding: 10px 0px;
+  cursor: pointer;
+}
+
+.cardBtnColapsado {
+  width: 100%;
+  color: rgb(25, 0, 58);
+  background-color: white;
+  max-height: 0px;
+  transition: all 0.5s;
+  text-align: center;
+  border-radius: 7px;
+  font-weight: bold;
+  padding: 0px 0px;
+  cursor: pointer;
+  overflow-y: hidden;
+}
+
+/* Itinerario */
+
+.itinerario {
+  height: fit-content;
+  transition: all 0.5s;
+  padding: 10px;
+}
+
+.itinerarioColapsado {
+  max-height: 0px;
+  overflow-y: hidden;
+  padding: 0px 10px;
+  transition: all 0.5s;
+}
+
+.itinerarioTitulo {
+  padding: 10px 10px;
+  font-size: var(--M);
+  font-weight: bold;
+}
+.actividad {
+  display: flex;
+  flex-direction: column;
+  background: url(https://grainy-gradients.vercel.app/noise.svg),
+    linear-gradient(-90deg, rgb(255, 255, 255) 0%, rgb(238, 238, 238) 100%);
+  padding: 15px 20px;
+  border-radius: 7px;
+  text-align: justify;
+  margin-bottom: 20px;
+}
+
+.actividadTop {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 10px;
+}
+
+.actividadTitulo {
+  font-weight: bold;
+}
+
+.actividadEstatus {
+  color: orange;
+  font-weight: bold;
+}
