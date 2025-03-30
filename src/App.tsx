@@ -6,7 +6,7 @@ import "swiper/css";
 const cardsData = [
   {
     img: "tequila.webp",
-    title: "Visita Tequila",
+    title: "Tequila",
     desc: "Descubre Tequila, México, con un recorrido por sus icónicas destilerías, donde podrás conocer el proceso artesanal de producción del tequila y degustar sus mejores variedades. Explora el pintoresco pueblo mágico, su historia, gastronomía y paisajes agaveros, declarados Patrimonio de la Humanidad por la UNESCO.",
     backgroundColor:
       "linear-gradient(-30deg, rgb(159, 182, 255) 0%, rgb(105, 73, 126) 100%)", // Estilo de fondo dinámico
@@ -30,7 +30,7 @@ const cardsData = [
   },
   {
     img: "mazamitla.webp",
-    title: "Visita Mazamitla",
+    title: "Mazamitla",
     desc: "Mazamitla, conocido como el 'Pueblo Mágico' de la sierra, te ofrece un paisaje impresionante de bosques y montañas. Disfruta de actividades al aire libre como caminatas, paseos a caballo, y explora su pintoresco centro histórico lleno de encanto.",
     backgroundColor:
       "linear-gradient(-30deg, rgb(105, 205, 145) 0%, rgb(27, 74, 69) 100%)", // Otro fondo dinámico
@@ -54,7 +54,7 @@ const cardsData = [
   },
   {
     img: "tapalpa.webp",
-    title: "Visita Tapalpa",
+    title: "Tapalpa",
     desc: "Tapalpa es un encantador Pueblo Mágico rodeado de montañas, ideal para quienes buscan tranquilidad y naturaleza. Aquí podrás disfrutar de sus hermosos paisajes, realizar actividades al aire libre y explorar su arquitectura tradicional.",
     backgroundColor:
       "linear-gradient(-30deg, rgb(183, 212, 171) 0%, rgb(59, 99, 104) 100%)", // Fondo dinámico para Tapalpa
@@ -78,7 +78,7 @@ const cardsData = [
   },
   {
     img: "sansebastian.webp",
-    title: "Visita San Sebastián del Oeste",
+    title: "San Sebastián del Oeste",
     desc: "San Sebastián del Oeste es un Pueblo Mágico enclavado en la sierra, conocido por su rica historia minera y su entorno natural. Disfruta de su arquitectura colonial y paisajes montañosos, ideales para el ecoturismo.",
     backgroundColor:
       "linear-gradient(-30deg, rgb(204, 163, 118) 0%, rgb(69, 56, 54) 100%)", // Fondo dinámico para San Sebastián
@@ -104,12 +104,10 @@ const cardsData = [
 
 function App() {
   const [open, setOpen] = useState(false);
-  const [activeIndex, setActiveIndex] = useState(2);
+  const initialSlide = 1;
+  const [activeIndex, setActiveIndex] = useState(initialSlide);
   const [itineraryHeight, setItineraryHeight] = useState(0);
   const itineraryRefs = useRef<(HTMLDivElement | null)[]>([]);
-  const sectionRef = useRef<(HTMLDivElement | null)[]>([]);
-
-  const swiperRef = useRef<(HTMLDivElement | null)[]>([]);
 
   const animationRef = useRef<number | null>(null); // Properly typed
   const animationStartTime = useRef<number>(0);
@@ -118,6 +116,7 @@ function App() {
     setActiveIndex(swiper.realIndex);
   };
 
+  /*  Agrega Margin Bottom a la sección de experiencias para evitar que se encimen*/
   useEffect(() => {
     if (open) {
       // Start animation
@@ -132,7 +131,7 @@ function App() {
           const fullHeight = currentRef.scrollHeight;
           const adjustedHeight = fullHeight * progress;
           // Apply the current height based on animation progress
-          setItineraryHeight(adjustedHeight - 200);
+          setItineraryHeight(adjustedHeight);
         }
 
         if (progress < 1) {
@@ -154,6 +153,10 @@ function App() {
 
   return (
     <>
+      <div className="section" style={{ background: "white" }}>
+        Landing
+      </div>
+
       <div
         className="section"
         style={{
@@ -162,11 +165,9 @@ function App() {
         }}
       >
         <Swiper
-          ref={swiperRef}
-          className="swiper"
           slidesPerView={"auto"}
           centeredSlides
-          initialSlide={2}
+          initialSlide={initialSlide}
           spaceBetween={0}
           onSlideChange={handleSlideChange}
         >

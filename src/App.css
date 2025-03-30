@@ -39,7 +39,7 @@
 
 .card {
   min-width: 300px;
-  max-width: 700px;
+  max-width: 500px;
   width: 75vw;
   min-height: 100% !important;
 
@@ -60,6 +60,12 @@
   justify-content: space-between;
   margin-left: -4px;
   transition: transform 0.3s;
+  @media (max-width: 800px) {
+    width: 75vw;
+  }
+  @media (min-width: 800px) {
+    width: 60vw;
+  }
 }
 
 .cardImg {
