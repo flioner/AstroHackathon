@@ -296,8 +296,27 @@ function App() {
             </div>
           ))}
         </div>
+        <div className="problematicaCont">
+          <div className="problematica">
+            <img className="problematicaImg" src="mexico.webp" />
 
-        <div className="problematica">
+            <div className="problematicaTexto">
+              <div className="problematicaTitulo">Problematica</div>
+              El turismo enfrenta desafíos como la falta de incentivos
+              atractivos, costos elevados y la dificultad para encontrar
+              experiencias auténticas y certificadas. Los programas de
+              recompensas tradicionales son rígidos y poco flexibles, limitando
+              el acceso a beneficios reales para los viajeros. Travelcoin aborda
+              este problema integrando tecnología Web3 y blockchain para crear
+              un ecosistema de recompensas transparente, seguro y
+              descentralizado. A través de tokens, los viajeros pueden obtener
+              incentivos al completar actividades, usarlos para descuentos en
+              servicios turísticos o convertirlos en criptomonedas, con la
+              garantía de que cada viaje, experiencia e itinerario están
+              verificados y certificados, eliminando intermediarios y
+              permitiendo transacciones globales sin restricciones.
+            </div>
+          </div>
           <img className="problematicaBg" src="bg.jpg" />
         </div>
       </div>
